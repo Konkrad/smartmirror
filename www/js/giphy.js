@@ -22,7 +22,7 @@
         .always(function() {
           el.html(template({
             url: giphy.url,
-            copyright: Giphy
+            copyright: "Giphy"
           }));
         });
     };
