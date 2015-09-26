@@ -14,5 +14,14 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.paulsonnentag.balanceboard": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/BrackCurly/cordova-plugin-balance-board.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
