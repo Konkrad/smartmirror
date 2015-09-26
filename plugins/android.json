@@ -31,6 +31,10 @@
                         {
                             "xml": "<feature name=\"BalanceBoard\"><param name=\"android-package\" value=\"com.paulsonnentag.balanceboard.BalanceBoardPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AndroidFullScreen\"><param name=\"android-package\" value=\"com.mesmotronic.plugins.FullScreenPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -67,6 +71,9 @@
             "PACKAGE_NAME": "com.paulsonnentag.smartmirror"
         },
         "com.paulsonnentag.balanceboard": {
+            "PACKAGE_NAME": "com.paulsonnentag.smartmirror"
+        },
+        "com.mesmotronic.plugins.fullscreen": {
             "PACKAGE_NAME": "com.paulsonnentag.smartmirror"
         }
     },
