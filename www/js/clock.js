@@ -23,25 +23,34 @@
     return strTime;
   }
 
-  exports.clockWidget = function (el) {
-    var template = _.template($("#clock-template").html());
-    var date = new Date();
+  function formatWeekDayDate(date) {
     var day = date.getDate();
     var weekDay = date.getDay();
     var monthIndex = date.getMonth();
-    var year = date.getFullYear();
+    var year = date.getFullYear()
+
+    return dayNames[weekDay] + ", " + day +  ". " + monthNames[monthIndex];
+  }
+
+  exports.clockWidget = function (el) {
+    var template = _.template($("#clock-template").html());
+    var date = new Date();
 
 
-    var render = function() {
+    function render () {
       el.html(template({
         time: formatAMPM(date),
-        date: dayNames[weekDay] + ", " + day +  ". " + monthNames[monthIndex]
+        date: formatWeekDayDate(date)
       }));
     };
 
     render();
 
-    var clockId = window.setInterval(render, 60 * 1000);
+    function update () {
+      $(".clock-time", el).html(formatAMPM(date));
+      $(".clock-date", el).html(formatWeekDayDate(date));
+    }
 
+    var clockId = window.setInterval(update, 1000);
   }
 }(window.smartMirror || (window.smartMirror = {})));
