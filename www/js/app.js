@@ -7,6 +7,8 @@
   var standing = false;
 
   smartMirror.weatherWidget($("#weather"));
+  smartMirror.clockWidget($("#clock"));
+  smartMirror.qodWidget($("#qod"));
 
   document.getElementById("button").onclick = function () {
     balanceBoard.connect();
