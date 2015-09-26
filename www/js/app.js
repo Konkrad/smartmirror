@@ -8,8 +8,6 @@
 
   smartMirror.weatherWidget($("#weather"));
   smartMirror.clockWidget($("#clock"));
-  smartMirror.qodWidget($("#qod"));
-  smartMirror.giphyWidget($("#giphy"));
 
 
   balanceBoard.connect();
@@ -29,5 +27,8 @@
       widget.show(weightWidget);
       standing = true;
     }
+
+
+
   });
 }());

@@ -78,3 +78,40 @@ body, html {
 .weight-unit {
     font-family: RobotoLight;
 }
+
+
+.weater-icon {
+    display: inline-block;
+}
+
+.weather-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.weather-temperature {
+    font-size: 2em;
+    margin-left: 20px;
+}
+
+.weather-summary {
+    margin-top: 5px;
+    text-align: center;
+    font-family: RobotoLight;
+}
+
+
+.clock {
+    text-align: center;
+}
+
+.clock-time {
+    margin: 0;
+}
+
+.clock-date {
+    margin: 5px 0 0 0;
+    font-family: RobotoLight;
+}
