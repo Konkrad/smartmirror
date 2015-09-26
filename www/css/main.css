@@ -1,3 +1,11 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 @font-face {
     font-family: 'Roboto';
     src: url('../fonts/Roboto-Regular-webfont.woff');
@@ -21,26 +29,29 @@ body, html {
     font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 .app {
+    position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
-.app #widget {
-    display: none;
-}
-
-.app.show-widget #weather {
-    display: none;
-}
-
-.app.show-widget #widget {
-    display: inherit;
-}
-
-#widget {
+.widget {
+    transition: opacity 0.5s ease-in;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%
+    height: 100%;
+    opacity: 0;
+}
+
+.show-widget .widget{
+    opacity: 1;
 }
 
 .weight-widget {
@@ -61,7 +72,6 @@ body, html {
 .weight-widget.show-content .weight {
     left: 0%;
     transform: translate(0, -50%);
-    zoom: 0.75;
 }
 
 .weight-content {
@@ -79,6 +89,13 @@ body, html {
     font-family: RobotoLight;
 }
 
+.weather {
+    position: absolute;
+    left: 0;
+    transition: all 0.5s ease-in;
+    width: 100%;
+    height: 50%;
+}
 
 .weater-icon {
     display: inline-block;
@@ -86,12 +103,14 @@ body, html {
 
 .weather-main {
     display: flex;
+    white-space: nowrap;
     justify-content: center;
     align-items: center;
     margin: 0;
 }
 
 .weather-temperature {
+    transition: font-size 0.5s ease-in;
     font-size: 2em;
     margin-left: 20px;
 }
@@ -100,18 +119,69 @@ body, html {
     margin-top: 5px;
     text-align: center;
     font-family: RobotoLight;
+    transition: opacity 0.5s ease-in;
 }
 
+.show-widget .weather {
+    width: 0;
+    left: 20px;
+    top: -20px;
+}
+
+.show-widget .weather-summary {
+    opacity: 0;
+}
+
+.show-widget .weather-temperature {
+    font-size: 24px;
+}
 
 .clock {
+    white-space: nowrap;
+    transition: all 0.7s ease-in;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding-top: 20px;
+    height: 50%;
+    width: 100%;
     text-align: center;
 }
 
 .clock-time {
+    transition: font-size 0.7s ease-in;
     margin: 0;
 }
 
 .clock-date {
+    transition: opacity 0.2s ease-in;
     margin: 5px 0 0 0;
     font-family: RobotoLight;
+}
+
+.show-widget .clock {
+    top: 0%;
+    padding-right: 20px;
+    width: 170px;
+}
+
+.show-widget .clock-time {
+    font-size: 24px;
+}
+
+.show-widget .clock-date{
+    opacity: 0;
+}
+
+
+.new-user {
+    text-align: center;
+}
+
+.new-user h1, .new-user p {
+    text-align: left;
+}
+
+.new-user p {
+    font-size: 20px;
 }

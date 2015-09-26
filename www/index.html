@@ -12,13 +12,13 @@
   <body>
     <div class="app" id="app">
 
-      <div id="weather">
+      <div id="weather" class="weather">
       </div>
 
-      <div id="clock">
+      <div id="clock" class="clock">
       </div>
 
-      <div id="widget">
+      <div id="widget" class="widget">
       </div>
 
       <div id="flickr">
@@ -53,19 +53,19 @@
     </script>
 
     <script type="template" id="new-user-template">
+     <div class="new-user">
      <h1>Hello!</h1>
-     <p>Please scan the QR-Code to create a new account</p>
+     <p>Scan the QR-Code to create a new account</p>
      <img src="<%= qrURL %>" class="qr-code" width="200px" height="200px">
+     </div>
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 
     <script type="template" id="clock-template">
-     <div class="clock">
      <h1 class="clock-time"><%- time %></h1>
      <h2 class="clock-date"><%- date %></h2>
-     </div>
     </script>
 
     <script type="template" id="qod-template">

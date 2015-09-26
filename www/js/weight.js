@@ -61,12 +61,15 @@
 
     render();
 
-    balanceBoard.on("data", onData);
+    setTimeout(function () {
+      balanceBoard.on("data", onData);
+    }, 500);
 
     return function () {
       if (request) {request.abort();}
 
-      self.className="";
+      self.classList.remove("show-content");
+      self.classList.remove("weight-widget")
       balanceBoard.off("data", onData);
     };
   }

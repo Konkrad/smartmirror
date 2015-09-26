@@ -15,21 +15,21 @@
     var render = function() {
       $.getJSON( endpoint, function( data ) {
       })
-      .done(function(data) {
-        weather.temperature = data.temperature,
-        weather.summary = data.summary,
-        weather.icon = data.icon.toUpperCase();
-        weather.icon = weather.icon.replace(/-/g, "_");
-      })
-      .always(function() {
-        el.html(template({
-          temperature: weather.temperature,
-          summary: weather.summary
-        }));
-        var skycons = new Skycons({"color": "white","resizeClear": true});
-        skycons.add("weather_icon", Skycons[weather.icon]);
-        skycons.play();
-      });
+	.done(function(data) {
+          weather.temperature = data.temperature,
+          weather.summary = data.summary,
+          weather.icon = data.icon.toUpperCase();
+          weather.icon = weather.icon.replace(/-/g, "_");
+	})
+	.always(function() {
+          el.html(template({
+            temperature: weather.temperature,
+            summary: weather.summary
+          }));
+          var skycons = new Skycons({"color": "white","resizeClear": true});
+          skycons.add("weather_icon", Skycons[weather.icon]);
+          skycons.play();
+	});
     }
 
     render();

@@ -13,6 +13,10 @@
   smartMirror.flickrWidget($("#flickr"));
   smartMirror.vineWidget($("#vine"));
 
+  if (window.AndroidFullScreen) {
+    AndroidFullScreen.leanMode(function () {}, function () {});
+  }
+
   balanceBoard.connect();
 
   balanceBoard.on('disconnected', function () {

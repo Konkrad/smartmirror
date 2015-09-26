@@ -4,7 +4,7 @@
 
   exports.api = {
     login: function (weight) {
-      return $.post(HOST + '/users/check', {device_id: deviceID, weight: weight});
+      return $.get(HOST + '/users/check', {device_id: deviceID, weight: weight});
     }
   };
 

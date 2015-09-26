@@ -1,6 +1,6 @@
 (function (exports) {
 
-  var weight = 90;
+  var weight = 60;
 
   function getData (v) {
     return {
@@ -16,31 +16,37 @@
       connect: function () {},
       disconnect: function () {},
       on: function (type, fn) {
-	if (type == "data" && false) {
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  fn(getData(weight));
-	  setTimeout(function () {
-	    fn(getData(weight));
+	if (type == "data") {
 
-	  }, 500);
+	  setTimeout(function () {
+
+
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    fn(getData(weight));
+	    setTimeout(function () {
+	      fn(getData(weight));
+
+	    }, 500);
+
+	  }, 1000);
 	}
       },
       off: function () {}
