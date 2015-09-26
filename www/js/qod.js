@@ -4,7 +4,7 @@
   exports.qodWidget = function (el) {
     var template = _.template($("#qod-template").html());
 
-    var endpoint = "http://api.theysaidso.com/qod.json?maxlength=200&category=funny";
+    var endpoint = "http://smartmirror.sfetea.ro/others/quote";
 
     var qod = {
       quote: "Behind a great success, there was a great failure",
@@ -15,11 +15,8 @@
       $.getJSON( endpoint, function() {
         })
         .done(function(data) {
-          if(data.success)
-          {
-            qod.quote = data.contents.quotes[0].quote;
-            qod.author = data.contents.quotes[0].author;
-          }
+            qod.quote = data.quote;
+            qod.author = data.author;
         })
         .always(function() {
           el.html(template({
