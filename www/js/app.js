@@ -15,7 +15,6 @@
     balanceBoard.connect();
   }
 
-
   balanceBoard.on('discovered', function () {
     console.log('balance board has been discovered');
   });
@@ -36,7 +35,6 @@
   });
 
   balanceBoard.on("data", function (data) {
-
     if (utils.totalWeight(data) < 3) {
       widget.hide();
       standing = false;

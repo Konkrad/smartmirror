@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -12,7 +12,11 @@
   <body>
     <button id="button">connect</button>
     <div class="app" id="app">
+
       <div id="weather">
+      </div>
+
+      <div id="widget">
       </div>
 
       <div id="clock">
@@ -27,9 +31,6 @@
       <div id="flickr"
       </div>
 
-      <div id="widget">
-      </div>
-
     </div>
 
     <script type="template" id="weather-template">
@@ -38,15 +39,37 @@
      <h2><%- summary %></h2>
     </script>
 
+
+    <script type="template" id="weight-template">
+     <h1 class="weight">
+     <span class="weight-number"><%- weight %></span><span class="weight-unit">kg</span>
+     </h1>
+
+     <div class="weight-content"> </div>
+    </script>
+
+    <script type="template" id="welcome-user-template">
+     <h1>Hello <%= name %>!</h1>
+    </script>
+
+    <script type="template" id="new-user-template">
+     <h1>Hello!</h1>
+     <p>Please scan the QR-Code to create a new account</p>
+     <img src="<%= qrURL %>" class="qr-code" width="200px" height="200px">
+    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
     <script type="template" id="clock-template">
-      <h1><%- time %></h1>
-      <h2><%- date %></h2>
+     <h1><%- time %></h1>
+     <h2><%- date %></h2>
     </script>
 
     <script type="template" id="qod-template">
-      <h1><%- quote %></h1>
-      <h2>by <%- author %></h2>
-      <h3>provided by theysaidso.com</h3>
+     <h1><%- quote %></h1>
+     <h2>by <%- author %></h2>
+     <h3>provided by theysaidso.com</h3>
     </script>
 
     <script type="template" id="image-template">
@@ -54,21 +77,26 @@
       <p><%- copyright %></p>
     </script>
 
-    <script type="text/javascript" src="js/lodash.js"></script>
-    <script type="text/javascript" src="js/utils.js"></script>
-    <script type="text/javascript" src="js/fake-balance-board.js"></script>
-
+    <!-- vendor  -->
     <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/lodash.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/skycons.js"></script>
+
+    <!-- common -->
+    <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/fake-balance-board.js"></script>
+    <script type="text/javascript" src="js/widget.js"></script>
+
+    <!-- widgets -->
+    <script type="text/javascript" src="js/weight.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
     <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/qod.js"></script>
     <script type="text/javascript" src="js/giphy.js"></script>
 
-     <script type="text/javascript" src="js/weight.js"></script>
-    <script type="text/javascript" src="js/weather.js"></script>
-    <script type="text/javascript" src="js/widget.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 
   </body>
