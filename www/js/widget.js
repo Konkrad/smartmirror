@@ -10,7 +10,7 @@
       var args = Array.prototype.slice.call(arguments, 1);
 
       if (_.isFunction(destructor)) {
-	destructor;
+	destructor();
       }
 
       destructor  = widget.apply(target, args);
