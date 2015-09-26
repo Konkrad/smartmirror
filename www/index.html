@@ -13,13 +13,20 @@
     <div class="app" id="app">
 
       <div id="weather">
-	<h1>weather</h1>
+	       <h1>weather</h1>
       </div>
 
       <div id="widget">
       </div>
 
     </div>
+
+    <script type="template" id="weather-template">
+      <h1><%- temperature %> &deg;C</h1>
+      <img src="img/weather_codes_svg/<%- code %>.svg">
+      <h2><%- condition %></h2>
+    </script>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
