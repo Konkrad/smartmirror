@@ -28,8 +28,8 @@
 
     <script type="template" id="weather-template">
      <h1><%- temperature %> &deg;C</h1>
-     <img src="img/weather_codes_svg/<%- code %>.svg">
-     <h2><%- condition %></h2>
+     <canvas id="weather_icon" width="128" height="128"></canvas>
+     <h2><%- summary %></h2>
     </script>
 
     <script type="template" id="clock-template">
@@ -49,6 +49,7 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/skycons.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
     <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/qod.js"></script>
