@@ -11,27 +11,13 @@
   smartMirror.qodWidget($("#qod"));
   smartMirror.giphyWidget($("#giphy"));
 
-  document.getElementById("button").onclick = function () {
-    balanceBoard.connect();
-  }
 
-  balanceBoard.on('discovered', function () {
-    console.log('balance board has been discovered');
-  });
-
-  balanceBoard.on('connecting', function () {
-    console.log('started connecting with balance board');
-  });
-
-  balanceBoard.on('connected', function () {
-    console.log('connected to balance board');
-  });
+  balanceBoard.connect();
 
   balanceBoard.on('disconnected', function () {
-    // known issue: this event is only triggered if the Balance Board is disconnected properly
-    // not if the power is turned of
-
-    console.log('balance board disconnected');
+    setTimeout(function () {
+      balanceBoard.connect();
+    }, 2000);
   });
 
   balanceBoard.on("data", function (data) {
