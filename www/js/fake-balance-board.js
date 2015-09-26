@@ -22,8 +22,24 @@
 	  fn(getData(weight));
 	  fn(getData(weight));
 	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
+	  fn(getData(weight));
 	  setTimeout(function () {
 	    fn(getData(weight));
+
 	  }, 500);
 	}
       },
