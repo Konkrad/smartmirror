@@ -9,16 +9,19 @@
     <preference default="14+" name="xwalkVersion" />
     <preference default="--disable-pull-to-refresh-effect" name="xwalkCommandLine" />
     <preference default="embedded" name="xwalkMode" />
+    <feature name="BalanceBoard">
+        <param name="android-package" value="com.paulsonnentag.balanceboard.BalanceBoardPlugin" />
+    </feature>
     <allow-intent href="market:*" />
     <name>SmartMirror</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
-    </description>
+    A sample Apache Cordova application that responds to the deviceready event.
+  </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
+    Apache Cordova Team
+  </author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="https://query.yahooapis.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
