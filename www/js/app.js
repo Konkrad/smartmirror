@@ -9,6 +9,7 @@
   smartMirror.weatherWidget($("#weather"));
   smartMirror.clockWidget($("#clock"));
   smartMirror.qodWidget($("#qod"));
+  smartMirror.giphyWidget($("#giphy"));
 
   document.getElementById("button").onclick = function () {
     balanceBoard.connect();

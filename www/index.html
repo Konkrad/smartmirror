@@ -25,12 +25,15 @@
       <div id="qod">
       </div>
 
+      <div id="giphy">
+      </div>
+
     </div>
 
     <script type="template" id="weather-template">
      <h1><%- temperature %> &deg;C</h1>
-     <img src="img/weather_codes_svg/<%- code %>.svg">
-     <h2><%- condition %></h2>
+     <canvas id="weather_icon" width="128" height="128"></canvas>
+     <h2><%- summary %></h2>
     </script>
 
 
@@ -66,20 +69,32 @@
      <h3>provided by theysaidso.com</h3>
     </script>
 
+
+    <script type="template" id="giphy-template">
+     <img src="<%- url %>">
+     <p>Giphy</p>
+    </script>
+
+    <!-- vendor  -->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/lodash.js"></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/skycons.js"></script>
+
+    <!-- common -->
     <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/fake-balance-board.js"></script>
+    <script type="text/javascript" src="js/widget.js"></script>
+
+    <!-- widgets -->
     <script type="text/javascript" src="js/weight.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
     <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/qod.js"></script>
-    <script type="text/javascript" src="js/weight.js"></script>
-    <script type="text/javascript" src="js/weather.js"></script>
-    <script type="text/javascript" src="js/widget.js"></script>
+    <script type="text/javascript" src="js/giphy.js"></script>
+
     <script type="text/javascript" src="js/app.js"></script>
 
   </body>
