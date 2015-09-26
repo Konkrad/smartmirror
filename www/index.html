@@ -10,22 +10,15 @@
     <title>Hello World</title>
   </head>
   <body>
-    <button id="button">connect</button>
     <div class="app" id="app">
 
       <div id="weather">
       </div>
 
-      <div id="widget">
-      </div>
-
       <div id="clock">
       </div>
 
-      <div id="qod">
-      </div>
-
-      <div id="giphy">
+      <div id="widget">
       </div>
 
       <div id="flickr"
@@ -34,11 +27,12 @@
     </div>
 
     <script type="template" id="weather-template">
-     <h1><%- temperature %> &deg;C</h1>
-     <canvas id="weather_icon" width="128" height="128"></canvas>
-     <h2><%- summary %></h2>
+     <h1 class="weather-main">
+     <canvas class="weather-icon" id="weather_icon" width="128" height="128"></canvas>
+     <span class="weather-temperature"><%- temperature %> &deg;C</span>
+     </h1>
+     <h2 class="weather-summary"><%- summary %></h2>
     </script>
-
 
     <script type="template" id="weight-template">
      <h1 class="weight">
@@ -62,8 +56,10 @@
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 
     <script type="template" id="clock-template">
-     <h1><%- time %></h1>
-     <h2><%- date %></h2>
+     <div class="clock">
+     <h1 class="clock-time"><%- time %></h1>
+     <h2 class="clock-date"><%- date %></h2>
+     </div>
     </script>
 
     <script type="template" id="qod-template">

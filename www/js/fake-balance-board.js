@@ -16,7 +16,7 @@
       connect: function () {},
       disconnect: function () {},
       on: function (type, fn) {
-	if (type == "data") {
+	if (type == "data" && false) {
 	  fn(getData(weight));
 	  fn(getData(weight));
 	  fn(getData(weight));
