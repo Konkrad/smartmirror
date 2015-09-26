@@ -7,8 +7,8 @@
 
     var weather = {};
 
-    $.getJSON( url, function( data ) {
-      console.log("got data");
+    var render = function() {$.getJSON( url, function( data ) {
+      console.log("got weather data from Yahoo!");
 
       weather.temperature = data.query.results.channel.item.condition.temp;
       weather.condition = data.query.results.channel.item.condition.text;
@@ -30,7 +30,11 @@
         condition: weather.condition,
         code: weather.code
       }));
-    });
+    })};
+
+    render();
+
+    var weatherID = window.setInterval(render, 3600000);
 
   }
 }(window.smartMirror || (window.smartMirror = {})));
