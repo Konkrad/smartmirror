@@ -38,6 +38,18 @@
      <h1 class="weight">
      <span class="weight-number"><%- weight %></span><span class="weight-unit">kg</span>
      </h1>
+
+     <div class="weight-content"> </div>
+    </script>
+
+    <script type="template" id="welcome-user-template">
+     <h1>Hello <%= name %>!</h1>
+    </script>
+
+    <script type="template" id="new-user-template">
+     <h1>Hello!</h1>
+     <p>Please scan the QR-Code to create a new account</p>
+     <img src="<%= qrURL %>" class="qr-code" width="200px" height="200px">
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>
@@ -54,13 +66,14 @@
      <h3>provided by theysaidso.com</h3>
     </script>
 
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/lodash.js"></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/fake-balance-board.js"></script>
     <script type="text/javascript" src="js/weight.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
     <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/qod.js"></script>

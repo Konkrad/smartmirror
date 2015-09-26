@@ -14,7 +14,6 @@
     balanceBoard.connect();
   }
 
-
   balanceBoard.on('discovered', function () {
     console.log('balance board has been discovered');
   });

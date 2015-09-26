@@ -2,7 +2,8 @@
 
   exports.utils = {
     totalWeight: function (data) {
-      return data.topLeft + data.topRight + data.bottomLeft + data.bottomRight;
+      var total =  data.topLeft + data.topRight + data.bottomLeft + data.bottomRight;
+      return Math.round(total * 10) / 10;
     }
   };
 
