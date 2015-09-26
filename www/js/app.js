@@ -11,6 +11,7 @@
   smartMirror.qodWidget($("#qod"));
   smartMirror.giphyWidget($("#giphy"));
   smartMirror.flickrWidget($("#flickr"));
+  smartMirror.vineWidget($("#vine"));
 
   balanceBoard.connect();
 
