@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -12,8 +12,8 @@
   <body>
     <button id="button">connect</button>
     <div class="app" id="app">
+
       <div id="weather">
-	<h1>weather</h1>
       </div>
 
       <div id="widget">
@@ -27,12 +27,19 @@
      <h2><%- condition %></h2>
     </script>
 
+    <script type="template" id="weight-template">
+     <h1 class="weight">
+     <span class="weight-number"><%- weight %></span><span class="weight-unit">kg</span>
+     </h1>
+    </script>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/lodash.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/utils.js"></script>
     <script type="text/javascript" src="js/fake-balance-board.js"></script>
-     <script type="text/javascript" src="js/weight.js"></script>
+    <script type="text/javascript" src="js/weight.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
     <script type="text/javascript" src="js/widget.js"></script>
     <script type="text/javascript" src="js/app.js"></script>

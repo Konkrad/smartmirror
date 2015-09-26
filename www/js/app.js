@@ -33,7 +33,6 @@
   });
 
   balanceBoard.on("data", function (data) {
-
     if (utils.totalWeight(data) < 3) {
       widget.hide();
       standing = false;

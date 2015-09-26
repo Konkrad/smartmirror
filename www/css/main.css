@@ -1,6 +1,29 @@
-body {
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular-webfont.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoLight';
+    src: url('../fonts/Roboto-Light-webfont.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0;
     background: #000;
     color: #fff;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
 }
 
 .app #widget {
@@ -13,4 +36,40 @@ body {
 
 .app.show-widget #widget {
     display: inherit;
+}
+
+#widget {
+    width: 100%;
+    height: 100%
+}
+
+.weight-widget {
+    position: relative;
+}
+
+.weight-widget .weight {
+    margin: 0;
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-out;
+}
+
+.weight-widget.show-stats .weight {
+    left: 0%;
+    transform: translate(0, -50%);
+    zoom: 0.75;
+}
+
+.weight-number {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 2em;
+}
+
+.weight-unit {
+    font-family: RobotoLight;
 }

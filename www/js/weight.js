@@ -1,5 +1,6 @@
 (function (exports) {
 
+  var template = _.template(document.getElementById("weight-template").innerHTML);
   var bufferSize = 20;
   var precision = 0.01;
   var utils = smartMirror.utils;
@@ -14,6 +15,9 @@
     var weight = 0;
     var completed = false;
 
+    this.classList.add("weight-widget");
+    this.classList.add("show-stats");
+
     function onData (data) {
       var avgMeasurement = _.reduce(prevMeasurements, average, 0);
       var deviation = Math.abs(weight -  avgMeasurement);
@@ -21,8 +25,6 @@
       weight = utils.totalWeight(data);
 
       if (prevMeasurements.length >= bufferSize) {
-	console.log(prevMeasurements, weight, deviation);
-
 	if (deviation < precision) {
 	  balanceBoard.off("data", onData);
 	  completed = true;
@@ -36,8 +38,11 @@
     }
 
     function render () {
-      self.innerHTML = "<h1>Weight:" + weight  + "</h1>";
+
+
+      self.innerHTML = template({weight: weight});
     }
+
 
     render();
 
@@ -46,7 +51,7 @@
     return function () {
       balanceBoard.off("data", onData);
     };
+  }
 
-  };
 
 }(window.smartMirror || (window.smartMirror = {})));
