@@ -13,7 +13,10 @@
     <div class="app" id="app">
 
       <div id="weather">
-	       <h1>weather</h1>
+      </div>
+
+      <div id="clock">
+
       </div>
 
       <div id="widget">
@@ -27,9 +30,15 @@
       <h2><%- condition %></h2>
     </script>
 
+    <script type="template" id="clock-template">
+      <h1><%- time %></h1>
+      <h2><%- date %></h2>
+    </script>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/lodash.js"></script>
     <script type="text/javascript" src="js/widget.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
