@@ -7,7 +7,7 @@
   var totalWidgets;
   var pos;
   var interval;
-  var waitingTime = 2 * 1000;
+  var waitingTime = 0.5 * 1000;
 
   exports.widget = {
     show: function () {
@@ -31,11 +31,9 @@
 	destructors.push(destructor);
       }
 
-
       if (totalWidgets == 2) {
 	interval = setInterval(function () {
-
-	  pos = (pos + 1) % totalWidgets;
+	  pos = 1;//(pos + 1) % totalWidgets;
 
 	  $(widgets).css("transform", "translate(0, " + (-(window.innerHeight+5) * pos) + "px)");
 

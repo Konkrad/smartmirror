@@ -93,10 +93,14 @@
     </script>
 
     <script type="template" id="calendar-template">
-     <h1><%- name %></h1>
-     <h2><%- location %></h2>
-     <p><%- start %></p>
-     <p><%- end %></p>
+     <div class="calendar">
+     <div class="calendar-event">
+     <p class="calendar-subtitle">Next up</p>
+     <h1 class="calendar-title"><%- name %></h1>
+     <h2 class="calndar-location"><%- location %></h2>
+     <p class="duration"><%- start %> - <%- end %></p>
+     </div>
+     </div>
     </script>
 
     <!-- vendor  -->
@@ -121,8 +125,6 @@
     <script type="text/javascript" src="js/vine.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
     <script type="text/javascript" src="js/weight.js"></script>
-
-
 
     <script type="text/javascript" src="js/app.js"></script>
 

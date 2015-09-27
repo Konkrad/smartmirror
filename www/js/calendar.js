@@ -1,7 +1,7 @@
 (function (exports) {
   'use strict';
 
-  exports.calendarWidget = function (el,id) {
+  exports.calendarWidget = function (el, id) {
     var template = _.template($("#calendar-template").html());
 
     var endpoint = "http://smartmirror.sfetea.ro/others/event/"+id;
@@ -17,10 +17,10 @@
       $.getJSON( endpoint, function( data ) {
       })
     	.done(function(data) {
-        calendar.name = data.name;
-        calendar.location = data.location;
-        calendar.start = data.start;
-        calendar.end = data.end;
+          calendar.name = data.name;
+          calendar.location = data.location;
+          calendar.start = data.start;
+          calendar.end = data.end;
     	})
     	.always(function() {
           el.html(template({
@@ -28,7 +28,7 @@
             location: calendar.location,
             start: calendar.start,
             end: calendar.end
-        }));
+          }));
     	});
     };
 

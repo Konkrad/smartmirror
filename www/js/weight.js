@@ -30,8 +30,6 @@
 
     this.classList.add("weight-widget");
 
-    console.log("init weight widget");
-
     function onData (data) {
       var avgMeasurement = _.reduce(prevMeasurements, average, 0);
       var deviation = Math.abs(weight -  avgMeasurement);
@@ -70,8 +68,10 @@
 	$('.weight-content', self).html(welcomeUserTemplate({name: data.name}));
 	user_id = data.id;
 
+	console.log(data)
+
 	timeout = setTimeout(function () {
-	  addWidgets();
+	  addWidgets(data.calendar);
 	}, 500);
 
 	drawChart(data.history);
@@ -80,9 +80,13 @@
       self.classList.add("show-content");
     }
 
-    function addWidgets () {
-      widget.add(qodWidget);
+    function addWidgets (hasCalendar) {
+
+      if (hasCalendar) {
+	widget.add(calendarWidget, user_id);
+      }
       widget.add(giphyWidget);
+      widget.add(qodWidget);
       widget.add(flickrWidget);
       //widget.add(vineWidget);
     }

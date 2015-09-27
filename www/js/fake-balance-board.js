@@ -43,10 +43,6 @@
 	    setTimeout(function () {
 	      fn(getData(weight));
 
-	      setTimeout(function () {
-		fn(getData(0));
-	      },2000);
-
 	    }, 500);
 
 	  }, 500);
