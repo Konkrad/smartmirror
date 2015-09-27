@@ -45,9 +45,21 @@
       var html;
 
       if (data.status === "not_found") {
-	html = newUserTemplate({qrURL: data.qr_code})
+	        html = newUserTemplate({qrURL: data.qr_code});
+
+          var checkIntervalId = setInterval(function(){
+            request = api.check(weight);
+        	  request.success(function(data){
+              if (data.status === "ok") {
+                html = welcomeUserTemplate({name: data.name});
+                $('.weight-content', self).html(html);
+                
+                clearInterval(checkIntervalId);
+              }
+            });
+          }, 5000);
       } else {
-	html = welcomeUserTemplate({name: data.name});
+	         html = welcomeUserTemplate({name: data.name});
       }
 
       self.classList.add("show-content");
