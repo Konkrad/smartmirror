@@ -80,12 +80,13 @@
       self.classList.add("show-content");
     }
 
+
     function addWidgets (hasCalendar) {
 
       if (hasCalendar) {
 	widget.add(calendarWidget, user_id);
       }
-      widget.add(giphyWidget);
+      widget.add(giphyWidget, user_id);
       widget.add(qodWidget);
       widget.add(flickrWidget);
       //widget.add(vineWidget);
