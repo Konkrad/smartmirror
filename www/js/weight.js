@@ -1,6 +1,7 @@
 (function (exports) {
 
   var newUserTemplate = _.template(document.getElementById("new-user-template").innerHTML);
+  var editUserTemplate = _.template(document.getElementById("edit-user-template").innerHTML);
   var welcomeUserTemplate = _.template(document.getElementById("welcome-user-template").innerHTML)
   var template = _.template(document.getElementById("weight-template").innerHTML);
   var bufferSize = 20;
@@ -8,6 +9,7 @@
   var utils = smartMirror.utils;
   var api = smartMirror.api;
   var request = null;
+  var user_id = 0;
 
   function average (average, measurement, i, measurements) {
     return average + (measurement / measurements.length);
@@ -24,15 +26,24 @@
       var avgMeasurement = _.reduce(prevMeasurements, average, 0);
       var deviation = Math.abs(weight -  avgMeasurement);
 
+      if( utils.isOnOneFoot(data) ) {
+        request = api.get_edit_link(user_id);
+        request.success(function(){
+          html = editUserTemplate({name: data.name});
+          $('.weight-content', self).html(html);
+        });
+      }
+
       weight = utils.totalWeight(data);
 
       if (prevMeasurements.length >= bufferSize) {
-	if (deviation < precision) {
-	  balanceBoard.off("data", onData);
+      	if (deviation < precision) {
+          //maybe add a bool variabile to know if you should listen or not
+          balanceBoard.off("data", onData);
 
-	  request = api.login(weight);
-	  request.success(handleLogin);
-	}
+      	  request = api.login(weight);
+      	  request.success(handleLogin);
+      	}
       }
 
       prevMeasurements.push(weight);
@@ -52,14 +63,16 @@
         	  request.success(function(data){
               if (data.status === "ok") {
                 html = welcomeUserTemplate({name: data.name});
+                user_id = data.id;
                 $('.weight-content', self).html(html);
-                
+
                 clearInterval(checkIntervalId);
               }
             });
           }, 5000);
       } else {
 	         html = welcomeUserTemplate({name: data.name});
+           user_id = data.id;
       }
 
       self.classList.add("show-content");
