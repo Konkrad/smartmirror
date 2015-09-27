@@ -13,25 +13,13 @@
   <body>
     <div class="app" id="app">
 
+      <div id="widgets" class="widgets">
+      </div>
+
       <div id="weather" class="weather">
       </div>
 
       <div id="clock" class="clock">
-      </div>
-
-      <div id="widget" class="widget">
-      </div>
-
-      <div id="flickr">
-      </div>
-
-      <div id="giphy">
-      </div>
-
-      <div id="vine">
-      </div>
-
-      <div id="calendar">
       </div>
 
     </div>
@@ -83,26 +71,32 @@
     </script>
 
     <script type="template" id="qod-template">
-     <h1><%- quote %></h1>
-     <h2>by <%- author %></h2>
-     <h3>provided by theysaidso.com</h3>
+     <div class="qod">
+     <div class="qod-quote">
+     <p class="qod-message">&ldquo;<%- quote %>&rdquo;</p>
+     <p class="qod-author">by <%- author %></p>
+     </div>
+     <p class="qod-credit">provided by theysaidso.com</p>
+     </div>
     </script>
 
     <script type="template" id="image-template">
-     <img src="<%- url %>">
-     <p><%- copyright %></p>
+
+     <div class="image-widget" style="background-image: url(<%- url %>)">
+     <p class="image-widget-copyright"><%- copyright %></p>
+     </div>
     </script>
 
     <script type="template" id="video-template">
-      <%= html %>
-      <p><%- copyright %></p>
+     <%= html %>
+     <p><%- copyright %></p>
     </script>
 
     <script type="template" id="calendar-template">
-      <h1><%- name %></h1>
-      <h2><%- location %></h2>
-      <p><%- start %></p>
-      <p><%- end %></p>
+     <h1><%- name %></h1>
+     <h2><%- location %></h2>
+     <p><%- start %></p>
+     <p><%- end %></p>
     </script>
 
     <!-- vendor  -->
@@ -119,7 +113,6 @@
     <script type="text/javascript" src="js/widget.js"></script>
 
     <!-- widgets -->
-    <script type="text/javascript" src="js/weight.js"></script>
     <script type="text/javascript" src="js/weather.js"></script>
     <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/qod.js"></script>
@@ -127,6 +120,7 @@
     <script type="text/javascript" src="js/flickr.js"></script>
     <script type="text/javascript" src="js/vine.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
+    <script type="text/javascript" src="js/weight.js"></script>
 
 
 

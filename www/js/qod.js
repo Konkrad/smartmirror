@@ -13,10 +13,10 @@
 
     var render = function() {
       $.getJSON( endpoint, function() {
-        })
+      })
         .done(function(data) {
-            qod.quote = data.quote;
-            qod.author = data.author;
+          qod.quote = data.quote;
+          qod.author = data.author;
         })
         .always(function() {
           el.html(template({
@@ -29,6 +29,5 @@
     render();
 
     var qodId = window.setInterval(render, 86400000);
-
   }
 }(window.smartMirror || (window.smartMirror = {})));

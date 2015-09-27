@@ -9,7 +9,15 @@
   var utils = smartMirror.utils;
   var api = smartMirror.api;
   var request = null;
+  var timeout = null;
   var user_id = 0;
+
+  var widget = smartMirror.widget;
+  var qodWidget = smartMirror.qodWidget;
+  var giphyWidget = smartMirror.giphyWidget;
+  var flickrWidget = smartMirror.flickrWidget;
+  var vineWidget = smartMirror.vineWidget;
+  var calendarWidget = smartMirror.calendarWidget;
 
   function average (average, measurement, i, measurements) {
     return average + (measurement / measurements.length);
@@ -21,6 +29,8 @@
     var weight = 0;
 
     this.classList.add("weight-widget");
+
+    console.log("init weight widget");
 
     function onData (data) {
       var avgMeasurement = _.reduce(prevMeasurements, average, 0);
@@ -54,29 +64,27 @@
 
     function handleLogin (data) {
       if (data.status === "not_found") {
-
-	$('.weight-content', self).html(newUserTemplate({qrURL: data.qr_code}));
-
-	var checkIntervalId = setInterval(function(){
-          request = api.check(weight);
-          request.success(function(data){
-            if (data.status === "ok") {
-              user_id = data.id;
-              $('.weight-content', self).html(welcomeUserTemplate({name: data.name}));
-	      drawChart(data.history)
-
-              clearInterval(checkIntervalId);
-            }
-          });
-        }, 1000);
+ 	$('.weight-content', self).html(newUserTemplate({qrURL: data.qr_code}));
 
       } else {
 	$('.weight-content', self).html(welcomeUserTemplate({name: data.name}));
 	user_id = data.id;
+
+	timeout = setTimeout(function () {
+	  addWidgets();
+	}, 500);
+
 	drawChart(data.history);
       }
 
       self.classList.add("show-content");
+    }
+
+    function addWidgets () {
+      widget.add(qodWidget);
+      widget.add(giphyWidget);
+      widget.add(flickrWidget);
+      //widget.add(vineWidget);
     }
 
     function drawChart (progress) {
@@ -144,7 +152,10 @@
     }, 500);
 
     return function () {
+      console.log("destruct");
+
       if (request) {request.abort();}
+      if (timeout) {clearTimeout(timeout); console.log("clear timeout")}
 
       self.classList.remove("show-content");
       self.classList.remove("weight-widget")

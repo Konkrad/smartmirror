@@ -41,11 +41,15 @@
 	    fn(getData(weight));
 	    fn(getData(weight));
 	    setTimeout(function () {
-	      //fn(getData(weight));
+	      fn(getData(weight));
 
-	    }, 1000);
+	      setTimeout(function () {
+		fn(getData(0));
+	      },2000);
 
-	  }, 0);
+	    }, 500);
+
+	  }, 500);
 	}
       },
       off: function () {}

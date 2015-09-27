@@ -8,11 +8,6 @@
 
   smartMirror.weatherWidget($("#weather"));
   smartMirror.clockWidget($("#clock"));
-  smartMirror.qodWidget($("#qod"));
-  smartMirror.giphyWidget($("#giphy"));
-  smartMirror.flickrWidget($("#flickr"));
-  smartMirror.vineWidget($("#vine"));
-  smartMirror.calendarWidget($("#calendar"));
 
   if (window.AndroidFullScreen) {
     AndroidFullScreen.leanMode(function () {}, function () {});
@@ -21,9 +16,11 @@
   balanceBoard.connect();
 
   balanceBoard.on('disconnected', function () {
+    console.log("disconnected");
+
     setTimeout(function () {
       balanceBoard.connect();
-    }, 2000);
+    }, 1000);
   });
 
   balanceBoard.on("data", function (data) {
@@ -31,12 +28,13 @@
       widget.hide();
       standing = false;
 
-    } else if (standing == false) {
-      widget.show(weightWidget);
+      console.log("hide");
+
+    } else if (!standing) {
+      widget.show();
+      widget.add(weightWidget);
       standing = true;
     }
-
-
 
   });
 }());
