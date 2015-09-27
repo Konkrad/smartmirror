@@ -14,6 +14,7 @@
       totalWidgets = 0;
       pos = 0;
       app.classList.add("show-widget");
+      $(widgets).css("transform", "translate(0, 0px)");
     },
 
     add: function (widget) {
@@ -30,12 +31,13 @@
 	destructors.push(destructor);
       }
 
+
       if (totalWidgets == 2) {
 	interval = setInterval(function () {
 
 	  pos = (pos + 1) % totalWidgets;
 
-	  $(widgets).css("transform", "translate(0, " + (-(window.innerHeight+5) * pos) + "px)")
+	  $(widgets).css("transform", "translate(0, " + (-(window.innerHeight+5) * pos) + "px)");
 
 	}, waitingTime);
       }
@@ -44,7 +46,6 @@
     hide: function () {
       totalWidgets = 0;
       clearInterval(interval);
-
 
 
       destructors.forEach(function (destructor) {

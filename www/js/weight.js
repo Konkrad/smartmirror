@@ -36,13 +36,13 @@
       var avgMeasurement = _.reduce(prevMeasurements, average, 0);
       var deviation = Math.abs(weight -  avgMeasurement);
 
-      if( utils.isOnOneFoot(data) ) {
+      /*if( utils.isOnOneFoot(data) ) {
         request = api.get_edit_link(user_id);
         request.success(function(){
-          html = editUserTemplate({name: data.name});
-          $('.weight-content', self).html(html);
+        html = editUserTemplate({name: data.name});
+        $('.weight-content', self).html(html);
         });
-      }
+	}*/
 
       weight = utils.totalWeight(data);
 
