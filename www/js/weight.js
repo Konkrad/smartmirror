@@ -82,7 +82,7 @@
 
     function addWidgets () {
       widget.add(qodWidget);
-      widget.add(giphyWidget);
+      widget.add(giphyWidget, user_id);
       widget.add(flickrWidget);
       //widget.add(vineWidget);
     }
