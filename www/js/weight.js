@@ -42,18 +42,70 @@
     }
 
     function handleLogin (data) {
-      var html;
-
       if (data.status === "not_found") {
-	html = newUserTemplate({qrURL: data.qr_code})
+	$('.weight-content', self).html(newUserTemplate({qrURL: data.qr_code}));
+
       } else {
-	html = welcomeUserTemplate({name: data.name});
+	$('.weight-content', self).html(welcomeUserTemplate({name: data.name}));
+	drawChart(data.history);
       }
 
       self.classList.add("show-content");
-
-      $('.weight-content', self).html(html);
     }
+
+    function drawChart (progress) {
+      var padding = 20;
+      var width = 375;
+      var height = 250;
+      var chart = d3.select("#chart");
+
+      progress = progress.sort(function (a, b) {return a.day - b.day}).slice(-14);
+
+      var xRange = d3.scale.linear()
+	.range([0, width])
+	.domain([
+	  d3.min(progress, function(d) {return d.day;}),
+	  d3.max(progress, function(d) {return d.day;})
+	]);
+
+      var yRange = d3.scale.linear()
+	.range([0, height - 2*padding])
+	.domain([
+	  d3.min(progress, function(d) {return d.weight;}),
+	  d3.max(progress, function(d) {return d.weight;})
+	]);
+
+
+      var lineFunc = d3.svg.line()
+	.x(function(d) {
+	  return xRange(d.day);
+	})
+	.y(function(d) {
+	  return height -padding*2 - yRange(d.weight);
+	})
+	.interpolate('basis');
+
+
+      var path = chart
+	.append('svg:g')
+	.attr('transform', 'translate(0, '+ padding +')')
+	.append('svg:path')
+	.attr('d', lineFunc(progress))
+	.attr('stroke', 'white')
+	.attr('stroke-width', 2)
+	.attr('fill', 'none');
+
+      var totalLength = path.node().getTotalLength();
+
+      path
+	.attr("stroke-dasharray", totalLength + " " + totalLength)
+	.attr("stroke-dashoffset", totalLength)
+	.transition()
+	.duration(1000)
+	.ease("basis-open")
+	.attr("stroke-dashoffset", 0);
+    }
+
 
     function render () {
       self.innerHTML = template({weight: weight});

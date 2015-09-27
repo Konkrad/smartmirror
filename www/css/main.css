@@ -58,25 +58,28 @@ h1 {
     position: relative;
 }
 
+.weight-widget h1, .new-user {
+    text-align: center;
+}
+
 .weight-widget .weight {
     margin: 0;
     width: 200px;
     text-align: center;
     position: absolute;
-    left: 50%;
+    right: 100px;
     top: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.2s ease-out;
 }
 
 .weight-widget.show-content .weight {
-    left: 0%;
+    right: 0;
     transform: translate(0, -50%);
 }
 
 .weight-content {
     width: 100%;
-    padding-left: 200px;
 }
 
 .weight-number {
@@ -173,15 +176,6 @@ h1 {
     opacity: 0;
 }
 
-
-.new-user {
-    text-align: center;
-}
-
-.new-user h1, .new-user p {
-    text-align: left;
-}
-
-.new-user p {
-    font-size: 20px;
+.chart {
+    margin-left: 30px
 }

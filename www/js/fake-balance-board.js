@@ -1,6 +1,6 @@
 (function (exports) {
 
-  var weight = 60;
+  var weight = 68;
 
   function getData (v) {
     return {
@@ -19,7 +19,6 @@
 	if (type == "data") {
 
 	  setTimeout(function () {
-
 
 	    fn(getData(weight));
 	    fn(getData(weight));
@@ -42,11 +41,11 @@
 	    fn(getData(weight));
 	    fn(getData(weight));
 	    setTimeout(function () {
-	      fn(getData(weight));
+	      //fn(getData(weight));
 
-	    }, 500);
+	    }, 1000);
 
-	  }, 1000);
+	  }, 0);
 	}
       },
       off: function () {}
