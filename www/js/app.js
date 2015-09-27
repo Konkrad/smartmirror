@@ -8,6 +8,11 @@
 
   smartMirror.weatherWidget($("#weather"));
   smartMirror.clockWidget($("#clock"));
+  smartMirror.qodWidget($("#qod"));
+  smartMirror.giphyWidget($("#giphy"));
+  smartMirror.flickrWidget($("#flickr"));
+  smartMirror.vineWidget($("#vine"));
+  smartMirror.calendarWidget($("#calendar"));
 
   if (window.AndroidFullScreen) {
     AndroidFullScreen.leanMode(function () {}, function () {});

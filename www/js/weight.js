@@ -1,6 +1,7 @@
 (function (exports) {
 
   var newUserTemplate = _.template(document.getElementById("new-user-template").innerHTML);
+  var editUserTemplate = _.template(document.getElementById("edit-user-template").innerHTML);
   var welcomeUserTemplate = _.template(document.getElementById("welcome-user-template").innerHTML)
   var template = _.template(document.getElementById("weight-template").innerHTML);
   var bufferSize = 20;
@@ -8,6 +9,7 @@
   var utils = smartMirror.utils;
   var api = smartMirror.api;
   var request = null;
+  var user_id = 0;
 
   function average (average, measurement, i, measurements) {
     return average + (measurement / measurements.length);
@@ -24,15 +26,24 @@
       var avgMeasurement = _.reduce(prevMeasurements, average, 0);
       var deviation = Math.abs(weight -  avgMeasurement);
 
+      if( utils.isOnOneFoot(data) ) {
+        request = api.get_edit_link(user_id);
+        request.success(function(){
+          html = editUserTemplate({name: data.name});
+          $('.weight-content', self).html(html);
+        });
+      }
+
       weight = utils.totalWeight(data);
 
       if (prevMeasurements.length >= bufferSize) {
-	if (deviation < precision) {
-	  balanceBoard.off("data", onData);
+      	if (deviation < precision) {
+          //maybe add a bool variabile to know if you should listen or not
+          balanceBoard.off("data", onData);
 
-	  request = api.login(weight);
-	  request.success(handleLogin);
-	}
+      	  request = api.login(weight);
+      	  request.success(handleLogin);
+      	}
       }
 
       prevMeasurements.push(weight);
@@ -43,10 +54,25 @@
 
     function handleLogin (data) {
       if (data.status === "not_found") {
+
 	$('.weight-content', self).html(newUserTemplate({qrURL: data.qr_code}));
+
+	var checkIntervalId = setInterval(function(){
+          request = api.check(weight);
+          request.success(function(data){
+            if (data.status === "ok") {
+              user_id = data.id;
+              $('.weight-content', self).html(welcomeUserTemplate({name: data.name}));
+	      drawChart(data.history)
+
+              clearInterval(checkIntervalId);
+            }
+          });
+        }, 1000);
 
       } else {
 	$('.weight-content', self).html(welcomeUserTemplate({name: data.name}));
+	user_id = data.id;
 	drawChart(data.history);
       }
 
