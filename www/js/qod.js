@@ -27,7 +27,5 @@
     };
 
     render();
-
-    var qodId = window.setInterval(render, 86400000);
   }
 }(window.smartMirror || (window.smartMirror = {})));
