@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta charset="utf-8" /> 
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -28,6 +29,9 @@
       </div>
 
       <div id="vine">
+      </div>
+
+      <div id="calendar">
       </div>
 
     </div>
@@ -84,6 +88,13 @@
       <p><%- copyright %></p>
     </script>
 
+    <script type="template" id="calendar-template">
+      <h1><%- name %></h1>
+      <h2><%- location %></h2>
+      <p><%- start %></p>
+      <p><%- end %></p>
+    </script>
+
     <!-- vendor  -->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/lodash.js"></script>
@@ -105,6 +116,8 @@
     <script type="text/javascript" src="js/giphy.js"></script>
     <script type="text/javascript" src="js/flickr.js"></script>
     <script type="text/javascript" src="js/vine.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
+
 
 
     <script type="text/javascript" src="js/app.js"></script>
