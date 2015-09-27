@@ -43,7 +43,6 @@
         {
           vines = data;
           randomVine();
-          var vineId = window.setInterval(render, 1000*60);
         }
       })
       .fail(function() {

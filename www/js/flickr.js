@@ -31,8 +31,5 @@
     };
 
     render();
-
-    var flickrId = window.setInterval(render, 1000*60*60*24);
-
   }
 }(window.smartMirror || (window.smartMirror = {})));

@@ -28,8 +28,5 @@
     };
 
     render();
-
-    var giphyId = window.setInterval(render, 1000*60*60);
-
   }
 }(window.smartMirror || (window.smartMirror = {})));
